@@ -5,13 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stripe Pricing Table</title>
     <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+   <style>
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+        }
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
+            const logoUrl = urlParams.get('logo-url');
             const pricingTableId = urlParams.get('pricing-table-id');
             const publishableKey = urlParams.get('publishable-key');
             const clientSecret = urlParams.get('customer-session-client-secret');
 
+            if (logoUrl) {
+                document.getElementById('company-logo').src = logoUrl;
+            }
             const stripePricingTable = document.getElementById('stripe-pricing-table');
             if (pricingTableId) {
                 stripePricingTable.setAttribute('pricing-table-id', pricingTableId);
@@ -26,6 +38,7 @@
     </script>
 </head>
 <body>
+<img id="company-logo" class="logo" src="" alt="Company Logo">
     <h1>Our Pricing Plans</h1>
     <stripe-pricing-table 
         id="stripe-pricing-table"

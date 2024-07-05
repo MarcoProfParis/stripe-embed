@@ -5,13 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stripe Pricing Table</title>
     <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+        #stripe-pricing-table {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            #stripe-pricing-table {
+                padding: 10px;
+                margin: 10px;
+            }
+            .logo {
+                width: 80px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
+            const logoUrl = urlParams.get('logo-url');
             const pricingTableId = urlParams.get('pricing-table-id');
             const publishableKey = urlParams.get('publishable-key');
             const clientSecret = urlParams.get('customer-session-client-secret');
 
+            if (logoUrl) {
+                document.getElementById('company-logo').src = logoUrl;
+            }
             const stripePricingTable = document.getElementById('stripe-pricing-table');
             if (pricingTableId) {
                 stripePricingTable.setAttribute('pricing-table-id', pricingTableId);
@@ -26,6 +74,7 @@
     </script>
 </head>
 <body>
+    <img id="company-logo" class="logo" src="" alt="Company Logo">
     <h1>Our Pricing Plans</h1>
     <stripe-pricing-table 
         id="stripe-pricing-table"

@@ -16,14 +16,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
-            const logoUrl = urlParams.get('logo-url');
             const pricingTableId = urlParams.get('pricing-table-id');
             const publishableKey = urlParams.get('publishable-key');
             const clientSecret = urlParams.get('customer-session-client-secret');
-
-            if (logoUrl) {
-                document.getElementById('company-logo').src = logoUrl;
-            }
             const stripePricingTable = document.getElementById('stripe-pricing-table');
             if (pricingTableId) {
                 stripePricingTable.setAttribute('pricing-table-id', pricingTableId);
@@ -38,7 +33,7 @@
     </script>
 </head>
 <body>
-<img id="company-logo" class="logo" src="" alt="Company Logo">
+<img id="company-logo" class="logo" src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/JDOGI9FNE51rZMYEFLz8/pub/wagw3WvG9JXJCwUZm1nl.png" alt="Company Logo">
     <h1>Our Pricing Plans</h1>
     <stripe-pricing-table 
         id="stripe-pricing-table"

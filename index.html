@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stripe Pricing Table</title>
     <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-   <style>
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 100px;
-        }
-    </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -33,8 +25,7 @@
     </script>
 </head>
 <body>
-<img id="company-logo" class="logo" src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/JDOGI9FNE51rZMYEFLz8/pub/wagw3WvG9JXJCwUZm1nl.png" alt="Company Logo">
-    <h1>Our Pricing Plans</h1>
+    <h1><img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/JDOGI9FNE51rZMYEFLz8/pub/wagw3WvG9JXJCwUZm1nl.png" alt="Company Logo">Our Pricing Plans</h1>
     <stripe-pricing-table 
         id="stripe-pricing-table"
         pricing-table-id="default_pricing_table_id" 

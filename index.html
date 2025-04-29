@@ -59,7 +59,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const pricingTableId = urlParams.get('pricing-table-id');
             const publishableKey = urlParams.get('publishable-key');
-            const clientSecret = urlParams.get('customer-session-client-secret');
+            const clientSecret = urlParams.get('client_reference_id');
             const stripePricingTable = document.getElementById('stripe-pricing-table');
             if (pricingTableId) {
                 stripePricingTable.setAttribute('pricing-table-id', pricingTableId);
@@ -68,7 +68,7 @@
                 stripePricingTable.setAttribute('publishable-key', publishableKey);
             }
             if (clientSecret) {
-                stripePricingTable.setAttribute('customer-session-client-secret', clientSecret);
+                stripePricingTable.setAttribute('client_reference_id', clientSecret);
             }
         });
     </script>
@@ -79,7 +79,7 @@
         id="stripe-pricing-table"
         pricing-table-id="default_pricing_table_id" 
         publishable-key="default_publishable_key"
-        customer-session-client-secret="default_secret_key">
+        client_reference_id="default_secret_key">
     </stripe-pricing-table>
 </body>
 </html>
